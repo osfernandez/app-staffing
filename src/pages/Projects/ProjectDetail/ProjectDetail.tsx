@@ -2,7 +2,6 @@ import type { Project } from "../../../services/api";
 
 import { Suspense } from "react";
 import { useParams } from "react-router-dom";
-// import { Flex } from "@chakra-ui/layout";
 import {
   Flex,
   Text,
@@ -41,8 +40,7 @@ export function LoadingProjectDetails(): JSX.Element {
           minHeight="30px"
           alignItems="center"
         >
-          <Skeleton height="55px" width="85vw" />
-          <Spacer />
+          <Skeleton height="55px" width="1000px" mr="2rem" />
           <Skeleton width="3rem" height="30px" mr="0.5rem" />
           <Skeleton width="3rem" height="30px" />
         </Flex>
@@ -72,30 +70,29 @@ export function ProjectDetail({
     <div>
       <ProjectsHeader name={project?.name} />
 
-      <Flex
-        width="100%"
-        flexDirection="row"
-        minHeight="30px"
-        alignItems="center"
-      >
-        <ProjectDescription onEdit={onSave} project={project} />
-        <Spacer />
-        <IconButton
-          variant="editAction"
-          aria-label="Edit Project"
-          fontSize="20px"
-          icon={<EditIcon fill="currentColor" />}
-          onClick={() => alert("TODO")}
-        />
-        <ProjectDeleteButton
-          projectName={project.name}
-          projectId={project.id}
-          destroyProject={destroyProject}
-        />
-      </Flex>
-
       {project && (
         <>
+          <Flex
+            width="100%"
+            flexDirection="row"
+            minHeight="30px"
+            alignItems="center"
+          >
+            <ProjectDescription onEdit={onSave} project={project} />
+            <Spacer />
+            <IconButton
+              variant="editAction"
+              aria-label="Edit Project"
+              fontSize="20px"
+              icon={<EditIcon fill="currentColor" />}
+              onClick={() => alert("TODO")}
+            />
+            <ProjectDeleteButton
+              projectName={project.name}
+              projectId={project.id}
+              destroyProject={destroyProject}
+            />
+          </Flex>
           <RoleList
             destroyRole={destroyRole}
             updateRole={updateRole}
