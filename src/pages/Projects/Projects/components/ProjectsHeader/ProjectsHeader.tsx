@@ -10,6 +10,8 @@ import AddProjectModal from "../AddProjectModal";
 import SingleProjectBreadCrumb from "../../../../../components/Breadcrumbs/SingleProjectBreadCrumb";
 import ProjectsBreadCrumb from "../../../../../components/Breadcrumbs/ProjectsBreadCrumb";
 
+// import ProjectDeleteButton from "../../../components/ProjectDeleteButton/ProjectDeleteButton";
+
 interface ProjectHeaderProps {
   loading?: boolean;
   name?: string;
@@ -53,7 +55,7 @@ export default function ProjectsHeader({
         justifyContent="space-between"
       >
         <Text textStyle="title" color="gray.700" data-testid="projectListTitle">
-          Projects
+          { name ? name : "Projects"}
         </Text>
         {!name && (
           <>
@@ -74,6 +76,7 @@ export default function ProjectsHeader({
             />
           </>
         )}
+
       </Flex>
     </Box>
   );

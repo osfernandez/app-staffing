@@ -17,22 +17,21 @@ export default function ProjectDescription({
     onEdit(project.id, { [name]: value });
   };
 
+  // <input
+  //   className={styles.sectionLabel}
+  //   name="name"
+  //   onBlur={updateMainField}
+  //   defaultValue={project.name}
+  // />
+  // <div>
   return (
     <div className={styles.projectDescription}>
-      <input
-        className={styles.sectionLabel}
-        name="name"
-        onBlur={updateMainField}
-        defaultValue={project.name}
-      />
-      <div>
-        <p className={styles.sectionLabel}>Description:</p>
         <textarea
           name="description"
           defaultValue={project.description}
           onBlur={updateMainField}
         />
-      </div>
+      {/* </div> */}
     </div>
   );
 }
