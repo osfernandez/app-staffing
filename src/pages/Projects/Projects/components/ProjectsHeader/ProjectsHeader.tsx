@@ -1,4 +1,4 @@
-import type { NewProject } from "../../../../../services/api";
+import type { NewProject, Project } from "../../../../../services/api";
 
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
@@ -9,19 +9,20 @@ import { useDisclosure } from "@chakra-ui/hooks";
 import AddProjectModal from "../AddProjectModal";
 import SingleProjectBreadCrumb from "../../../../../components/Breadcrumbs/SingleProjectBreadCrumb";
 import ProjectsBreadCrumb from "../../../../../components/Breadcrumbs/ProjectsBreadCrumb";
-
 // import ProjectDeleteButton from "../../../components/ProjectDeleteButton/ProjectDeleteButton";
 
 interface ProjectHeaderProps {
   loading?: boolean;
   name?: string;
   addProject?: (project: NewProject) => void;
+  updateProject?: (id: string, data: Project) => Promise<void>
 }
 
 export default function ProjectsHeader({
   loading,
   name,
   addProject,
+  updateProject,
 }: ProjectHeaderProps): JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
